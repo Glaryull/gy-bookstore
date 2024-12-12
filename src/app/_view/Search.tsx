@@ -1,7 +1,5 @@
 import React from "react";
 
-type Props = {};
-
-export default function Search({}: Props) {
+export default function Search() {
   return <div>SearchPage</div>;
 }

@@ -1,8 +1,10 @@
-type ListProps = {
+type Request = {
   bookId: string;
+  bookName: string;
+  author: string;
 };
 
-type ListResponse = {
+type Response = {
   bookId: string;
   bookName: string;
   author: string;
@@ -46,6 +48,18 @@ const MOCK_DATA = [
     orderQuantity: 3000,
   },
 ];
-export default async function fetchShowBookList({ bookId }: ListProps) {
-  return { data: MOCK_DATA as ListResponse[] };
+export default function fetchShowBookList({
+  bookId,
+  bookName,
+  author,
+}: Request) {
+  const filteringBooks = MOCK_DATA.filter((book) => {
+    return (
+      (!bookId || book.bookId === bookId) &&
+      (!bookName || book.bookName.includes(bookName)) &&
+      (!author || book.author.includes(author))
+    );
+  });
+
+  return { data: filteringBooks };
 }
