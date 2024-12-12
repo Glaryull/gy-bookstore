@@ -1,4 +1,4 @@
-type Request = {
+type Props = {
   bookId: string;
   bookName: string;
   author: string;
@@ -22,7 +22,8 @@ type Response = {
   inventoryQuantity: number;
   orderQuantity: number;
 };
-const MOCK_DATA = [
+
+const MOCK_DATA: Response[] = [
   {
     bookId: "1",
     bookName: "소년이 온다",
@@ -40,19 +41,21 @@ const MOCK_DATA = [
     bookName: "지구 끝의 온실",
     author: "김초엽",
     publisher: "창비",
-    price: "18000",
-    genre: "science Fiction",
+    price: "18,000",
+    genre: "science fiction", // "science fiction"의 철자 수정
     bookType: "국내도서",
     sellingQuantity: 40000,
     inventoryQuantity: 100,
     orderQuantity: 3000,
   },
 ];
+
+// 반환 타입을 명확히 정의
 export default function fetchShowBookList({
   bookId,
   bookName,
   author,
-}: Request) {
+}: Props): { data: Response[] } {
   const filteringBooks = MOCK_DATA.filter((book) => {
     return (
       (!bookId || book.bookId === bookId) &&

@@ -1,11 +1,6 @@
 import React from "react";
 
-type Props = {
-  params: { bookId: string; bookName: string; author: string };
-  serchParams: {};
-};
-
-export default async function bookListPage({}: Props) {
+export default async function bookListPage() {
   return (
     <div className="flex flex-col container">
       <h1 className="overflow-hidden text-gray-700 font-bold items-center text-center">
