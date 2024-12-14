@@ -22,6 +22,10 @@ export default function Search({ children }: Props) {
   const [search, setSearch] = useState("");
   const [filteredBooks, setFilteredBooks] = useState(BOOK_DATA);
 
+  if (!result) {
+    console.log("결과가없을때 출력");
+  }
+
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value } = e.currentTarget;
     setSearch(value);
