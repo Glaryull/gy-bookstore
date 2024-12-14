@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import Search from "./Search";
 
 export default function Header() {
   const navBar = {
@@ -29,7 +28,9 @@ export default function Header() {
           </button>
         </ul>
       </nav>
-      <Search />
+      <div className="flex px-20 border-orange-600 border-b-4">
+        여기에 서치 창 띄울것임
+      </div>
     </header>
   );
 }
